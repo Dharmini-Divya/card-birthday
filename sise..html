@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Sister 🎂</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe0f7, #e0f7ff);
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+      overflow: hidden;
+      padding: 30px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #ff4081;
+      font-size: 40px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 5px #fff;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff69b4, 0 0 20px #ff69b4; }
+      to { text-shadow: 0 0 20px #ff1493, 0 0 30px #ff1493; }
+    }
+
+    .slideshow {
+      position: relative;
+      width: 350px;
+      height: 400px;
+      margin: 20px auto;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+      background: #fff;
+    }
+
+    .slides {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 22px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .balloon {
+      width: 50px;
+      height: 70px;
+      background: radial-gradient(circle at 30% 30%, #ff6b81, #ff4757);
+      border-radius: 50%;
+      position: absolute;
+      bottom: -100px;
+      animation: floatUp 7s infinite ease-in;
+      z-index: 1;
+    }
+
+    .balloon:nth-child(2) { left: 20%; animation-delay: 2s;}
+    .balloon:nth-child(3) { left: 40%; animation-delay: 4s;}
+    .balloon:nth-child(4) { left: 60%; animation-delay: 6s;}
+    .balloon:nth-child(5) { left: 80%; animation-delay: 1s;}
+
+    @keyframes floatUp {
+      0% { transform: translateY(0); opacity: 1;}
+      100% { transform: translateY(-120vh); opacity: 0;}
+    }
+
+    audio {
+      margin-top: 20px;
+      outline: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>🎉 Happy Birthday My Sweet Sister 🎂</h1>
+
+  <!-- Floating Balloons -->
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+  <div class="balloon"></div>
+
+  <!-- Slideshow -->
+  <div class="slideshow">
+    <img class="slides" src="pic1.jpg" alt="Memory 1">
+    <img class="slides" src="pic2.jpg" alt="Memory 2">
+    <img class="slides" src="pic3.jpg" alt="Memory 3">
+    <img class="slides" src="pic4.jpg" alt="Memory 4">
+    <img class="slides" src="pic5.jpg" alt="Memory 5">
+  </div>
+
+  <!-- Message -->
+  <div id="message">
+    No bond like a sister's bond. Happiest birthday to my soul twin 💖
+  </div>
+
+  <!-- Birthday Song -->
+  <audio controls autoplay loop>
+    <source src="happy-birthday.mp3" type="audio/mpeg">
+    <source src="happy-birthday.ogg" type="audio/ogg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script>
+    let slideIndex = 0;
+    const slides = document.getElementsByClassName("slides");
+
+    function showSlides() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000);
+    }
+
+    showSlides();
+  </script>
+
+</body>
+</html>
